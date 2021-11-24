@@ -1,7 +1,7 @@
 {
-  "name": "static-html-template",
+  "name": "hackathon-2021",
   "version": "1.0.0",
-  "description": "Normal HTML + CSS Develop Environment.  \n\n※Using reset.css to clear User Agent Stylesheets",
+  "description": "",
   "main": "index.html",
   "scripts": {
     "start": "serve"

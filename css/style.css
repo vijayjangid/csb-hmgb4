@@ -164,7 +164,7 @@ body {
   font-size: 18px;
 }
 .numbers {
-  font-size: 180px;
+  font-size: 30vh;
 }
 
 .hours::before,
