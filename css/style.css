@@ -164,7 +164,7 @@ body {
 .seconds {
   font-weight: normal;
   display: inline-block;
-  padding: 1rem;
+  padding: 0 1rem;
   min-width: 100px;
   position: relative;
   font-size: 2.5vmin;
@@ -179,7 +179,10 @@ body {
   content: ":";
   font-size: 14vmin;
   position: absolute;
-  top: 20%;
+  display: flex;
+  align-items: center;
+  height: 30vmin;
+  /* top: 10vmin; */
   left: -15%;
   color: var(--bgColor);
   -webkit-transition: color 700ms linear;
