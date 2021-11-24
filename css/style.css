@@ -172,7 +172,14 @@ body {
 .numbers {
   font-size: 25vmin;
 }
-
+#seconds {
+  color: var(--bgColor);
+  -webkit-transition: color 700ms linear;
+  -moz-transition: color 700ms linear;
+  -ms-transition: color 700ms linear;
+  -o-transition: color 700ms linear;
+  transition: color 700ms linear;
+}
 .hours::before,
 .minutes::before,
 .seconds::before {
