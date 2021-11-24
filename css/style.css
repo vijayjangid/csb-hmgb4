@@ -151,11 +151,12 @@ body {
 .time-display-container {
   font-family: "M PLUS 1 Code";
   text-align: center;
-  font-size: 3.5vmin;
+  font-size: 3vmin;
   font-weight: bold;
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
+  z-index: 99;
 }
 .days,
 .hours,
@@ -169,17 +170,17 @@ body {
   font-size: 2.5vmin;
 }
 .numbers {
-  font-size: 22vmin;
+  font-size: 25vmin;
 }
 
 .hours::before,
 .minutes::before,
 .seconds::before {
   content: ":";
-  font-size: 18vmin;
+  font-size: 14vmin;
   position: absolute;
-  top: 9%;
-  left: -20%;
+  top: 20%;
+  left: -15%;
   color: var(--bgColor);
   -webkit-transition: color 700ms linear;
   -moz-transition: color 700ms linear;
