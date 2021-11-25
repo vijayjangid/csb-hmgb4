@@ -19,7 +19,6 @@
       <div class="waveWrapper">
         <div class="wave wave1"></div>
       </div>
-      <!-- <img src="/img/logo.svg" class="logo" /> -->
       <div class="time-display-container">
         <h3>The Hackathon <span id="status"></span></h3>
         <div class="time-display">
@@ -43,8 +42,8 @@
       </div>
 
       <footer>
-        <button class="paused" id="btn-audio"></button>
-        <audio autoplay loop id="audio-bgm" class="audio-player">
+        <button id="btn-audio"></button>
+        <audio loop id="audio-bgm" class="audio-player">
           <source
             src="https://github.com/vijayjangid/csb-hmgb4/blob/gh-pages/aud/bensound-goinghigher.mp3?raw=true"
             type="audio/mpeg"
@@ -80,12 +79,14 @@
         let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        const statusElement = document.getElementById("status");
         status = isStart ? "will start in..." : "will end in...";
         if (finished) {
           days = hours = minutes = seconds = 0;
           status = "has ended!";
         }
+
+        // update status text based on current time
+        const statusElement = document.getElementById("status");
         statusElement.innerText = status;
 
         const daysElement = document.getElementById("days");
