@@ -41,34 +41,23 @@
           </div>
         </div>
       </div>
+
+      <footer>
+        <button id="btn-audio"></button>
+        <audio loop id="audio-bgm" class="audio-player">
+          <source src="/aud/bensound-goinghigher.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <p>
+          Music: https://www.bensound.com
+        </p>
+      </footer>
       <div class="waveWrapper">
         <div class="wave wave2"></div>
       </div>
     </div>
     <script>
-      // function generateCounterFragment(days, hours, minutes, seconds) {
-      //   return (
-      //     '<div class="days"> \
-      //   <div class="numbers">' +
-      //     days +
-      //     '</div>days</div> \
-      // <div class="hours"> \
-      //   <div class="numbers">' +
-      //     hours +
-      //     '</div>hours</div> \
-      // <div class="minutes"> \
-      //   <div class="numbers">' +
-      //     minutes +
-      //     '</div>minutes</div> \
-      // <div class="seconds"> \
-      //   <div class="numbers">' +
-      //     seconds +
-      //     "</div>seconds</div> \
-      // </div>"
-      //   );
-      // }
-
-      const hackathonStart = new Date(2021, 10, 25, 10).getTime();
+      const hackathonStart = new Date(2021, 10, 25, 9).getTime();
       const hackathonEnd = new Date(2021, 10, 26, 22).getTime();
 
       // countdown
@@ -78,7 +67,6 @@
         const isStart = hackathonStart > today;
         const finished = hackathonEnd < today;
 
-        console.log(isStart);
         // get the difference
         let diff = (isStart ? hackathonStart : hackathonEnd) - today;
         // math
@@ -106,12 +94,6 @@
         hoursElement.innerText = hours.toString().padStart(2, "0");
         minutesElement.innerText = minutes.toString().padStart(2, "0");
         secondsElement.innerText = seconds.toString().padStart(2, "0");
-        // timeDisplayElement.innerHTML = generateCounterFragment(
-        //   days,
-        //   hours,
-        //   minutes,
-        //   seconds
-        // );
 
         //change colors randomly every 5 seconds
         if (new Date().getSeconds() % 5 === 0) {
@@ -124,46 +106,20 @@
                 .padStart(6, "0")
           );
         }
+
         if (finished) {
           clearInterval(timer);
           return;
         }
       }, 1000);
 
-      // function z(n) {
-      //   return (Math.floor(n) < 10 ? "0" : "") + Math.floor(n);
-      // }
-      // function getDateDiffHMS(date1, date2) {
-      //   let secs = (date1 - date2) / 1000;
-
-      //   var sign = secs < 0 ? "-" : "";
-      //   secs = Math.abs(secs);
-      //   return (
-      //     sign +
-      //     z((secs / 3600) | 0) +
-      //     ":" +
-      //     z(((secs % 3600) / 60) | 0) +
-      //     ":" +
-      //     z(secs % 60)
-      //   );
-      // }
-      // const intervalId = setInterval(function () {
-      //   const timeDisplayElement = document.getElementById("time-display");
-      //   timeDisplayElement.innerText = getDateDiffHMS(
-      //     new Date(2021, 10, 25, 10, 0, 0),
-      //     Date.now()
-      //   );
-      //   if (new Date().getSeconds() % 5 === 0) {
-      //     const r = document.querySelector(":root");
-      //     r.style.setProperty(
-      //       "--bgColor",
-      //       "#" +
-      //         Math.floor(Math.random() * 16777215)
-      //           .toString(16)
-      //           .padStart(6, "0")
-      //     );
-      //   }
-      // }, 1000);
+      // play/pause audio
+      const btnPlayPauseElement = document.getElementById("btn-audio");
+      const audioElement = document.getElementById("audio-bgm");
+      btnPlayPauseElement.onclick = function (event) {
+        btnPlayPauseElement.classList.toggle("paused");
+        audioElement.paused ? audioElement.play() : audioElement.pause();
+      };
     </script>
   </body>
 </html>
